@@ -112,5 +112,8 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return false;
         }
     </script>
+     <div class="container mt-4">
+        <a href="crudProduit.php" class="btn btn-secondary">Return</a>
+    </div>
 </body>
 </html>

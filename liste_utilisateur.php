@@ -72,7 +72,9 @@ if ($result) {
             </table>
         </div>
     </div>
-
+    <div class="container mt-4">
+        <a href="crudProduit.php" class="btn btn-secondary">Return</a>
+    </div>
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

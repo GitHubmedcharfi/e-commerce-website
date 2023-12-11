@@ -71,7 +71,9 @@ button:hover {
 <body>
   <div class="container">
     <h1>Validation de Commande</h1>
-    <form action="valide.php" method="POST">
+    <form id="myForm" action="valide.php" method="POST" onsubmit="return sendEmail();">
+    
+  
       <label for="adresse">Adresse :</label>
       <input type="text" name="adresse" id="adresse" required><br><br>
 
@@ -90,9 +92,42 @@ button:hover {
       <label for="montantTotal">Montant total :</label>
 <input type="text" id="montantTotal" name="montantTotal" value="<?= $montantTotal ?>" readonly><br><br>
 
-      <input type="submit" value="valider ma commande " class="mon-bouton">
+<input type="submit" value="Valider ma commande" class="mon-bouton">
     </form>
- 
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+   <!-- Votre code HTML précédent reste inchangé jusqu'à la balise script contenant sendEmail() -->
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        var toEmail = document.getElementById("email").value;
+
+        if (!toEmail) {
+          alert("Veuillez saisir une adresse e-mail valide.");
+          return false; // Empêcher la soumission si l'e-mail est vide
+        }
+
+        fetch('temp.html')
+          .then(response => response.text())
+          .then(htmlContent => {
+            Email.send({
+              SecureToken: "93e95963-5f1f-4a21-affe-82587dfd2ecc",
+              To: toEmail,
+              From: "trigui.amal@enis.tn",
+              Subject: "Mail de confirmation de commande",
+              Body: htmlContent
+            }).then(
+              message => {
+                alert(message); // Afficher un message de confirmation d'envoi de l'e-mail
+                document.getElementById("myForm").submit(); // Soumettre le formulaire après l'envoi de l'e-mail
+              }
+            );
+          })
+          .catch(error => console.error(error));
+
+        return false; // Retourner false pour empêcher la soumission par défaut du formulaire
+      }
+    </script>
+
   </div>
   <script>
 

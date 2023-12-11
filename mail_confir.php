@@ -22,13 +22,22 @@
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
+
         function sendEmail() {
+            var toEmail = document.getElementById("email").value;
+
+if (!toEmail) {
+    // Affichez une alerte si l'e-mail est vide
+    alert("Veuillez saisir une adresse e-mail valide.");
+    return; // Arrêtez la fonction car l'e-mail est vide
+}
+
     fetch('temp.html')
         .then(response => response.text())
         .then(htmlContent => {
             Email.send({
                 SecureToken: "93e95963-5f1f-4a21-affe-82587dfd2ecc ",
-                To: "kchaou.roua@enis.tn",
+                To: toEmail,
                 From: "trigui.amal@enis.tn",
                 Subject: "Mail de confirmation de commande",
                 Body: htmlContent

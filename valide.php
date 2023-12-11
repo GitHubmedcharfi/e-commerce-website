@@ -56,7 +56,6 @@ try {
 
 $_SESSION['cart'] = array(); // Cela vide le panier
 
-// Rediriger l'utilisateur vers la page de confirmation
 header("Location: confirmation.php");
 exit;
 

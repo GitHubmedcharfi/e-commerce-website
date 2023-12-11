@@ -62,6 +62,8 @@ try {
             </div>
         </div>
     </div>
-    <!-- jQuery and Bootstrap JS -->
+    <div class="container mt-4">
+        <a href="crudProduit.php" class="btn btn-secondary">Return</a>
+    </div>
 </body>
 </html>
